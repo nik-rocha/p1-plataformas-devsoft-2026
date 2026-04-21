@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="..\assests\movie.css">
+    <title>Listagem</title>
+</head>
+<body>
+    <header>
+        <img src="/img/logo.png" alt="">
+    </header>
+    <main class="container">
+        <div id="detalhe-filme" class="movie-card-detail">
+            
+            <div class="card shadow-lg">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img id="imagem-filme" src="" class="img-fluid rounded-start h-100" alt="${filme.primaryTitle}" style="object-fit: cover;">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body p-4">
+                            <h2 id="titulo-filme" class="card-title text-title mb-3">${filme.primaryTitle}</h2>
+                            <p id="descricao-filme" class="card-text">${filme.description || "Sem descrição disponível."}</p>
+                            
+                            <hr>
+                            <p><strong>Gênero:</strong> Ação, Aventura</p>
+                            <p><strong>Ano:</strong> 2024</p>
+                            
+                            <div class="mt-4">
+                                <a href="index.html" class="btn btn-outline-secondary">
+                                    <i class="bi bi-arrow-left"></i> Voltar
+                                </a>
+                                <button class="btn btn-primary ms-2">Assistir Trailer</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</body>
+<script src="/js/config.js"></script>
+<script src="/js/movie.js"></script>
+</html>
