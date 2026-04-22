@@ -13,18 +13,38 @@ async function carregarFilme() {
     let imagem_filme = document.getElementById("imagem-filme")
     let titulo_filme = document.getElementById("titulo-filme")
     let descricao_filme = document.getElementById("descricao-filme")
+    let generos_filme = document.getElementById("generos-filme")
+    let lancamento_filme = document.getElementById("lancamento-filme")
     
     try {
-        const resposta = await api.get(`/movie/${id}`)
+        const resposta = await api.get(`/movie/${id}?language=pt-BR`)
         const filme = resposta.data
+        const dataLancamento = new Date(filme.release_date)
+        const dataLancamentoFormatada = dataLancamento.toLocaleDateString("pt-BR", { timeZone: "UTC" });
         console.log(filme)
 
         imagem_filme.src = `https://image.tmdb.org/t/p/w500/${filme.poster_path}`
         titulo_filme.textContent = filme.title
         descricao_filme.textContent = filme.overview
+        generos_filme.textContent = `Gêneros: ${filme.genres.map(g => g.name).join(", ")}`
+        lancamento_filme.textContent = `Data de Lançamento: ${dataLancamentoFormatada}`
+
     } catch (e) {
         console.log(e)
         alert("Deu pau")
+    }
+}
+
+async function verTrailer() {
+    try {
+        const id = localStorage.getItem("filmeId")
+        const resposta = await api.get(`/movie/${id}?language=pt-BR`)
+        const filme = resposta.data
+        window.open(`https://www.imdb.com/pt/title/${filme.imdb_id}/`, "_blank")
+
+    } catch (e) {
+        console.log(e)
+        alert("URL inválida.")
     }
 }
 

@@ -27,14 +27,14 @@
                             <p id="descricao-filme" class="card-text">${filme.description || "Sem descrição disponível."}</p>
                             
                             <hr>
-                            <p><strong>Gênero:</strong> Ação, Aventura</p>
-                            <p><strong>Ano:</strong> 2024</p>
+                            <p id="generos-filme"><strong>Gênero:</strong> Ação, Aventura</p>
+                            <p id="lancamento-filme"><strong>Data de Lançamento:</strong> 2024</p>
                             
                             <div class="mt-4">
-                                <a href="index.html" class="btn btn-outline-secondary">
+                                <a href="index.html" class="btn btn-outline-warning btn-lg">
                                     <i class="bi bi-arrow-left"></i> Voltar
                                 </a>
-                                <button class="btn btn-primary ms-2">Assistir Trailer</button>
+                                <button class="btn btn-warning btn-lg ms-2" onclick="verTrailer()">Assistir Trailer</button>
                             </div>
                         </div>
                     </div>

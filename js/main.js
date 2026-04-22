@@ -12,7 +12,7 @@ async function verFilmes() {
     container.innerHTML = ""
     
     try {
-        let resposta = await api.get("/movie/top_rated")
+        let resposta = await api.get("/movie/top_rated?language=pt-BR")
         let filmes = resposta.data.results
         filmes.forEach(filme => {
             let linha = `
