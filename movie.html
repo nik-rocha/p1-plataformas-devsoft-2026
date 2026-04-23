@@ -11,38 +11,41 @@
 </head>
 <body>
     <header>
-        <img src="/img/logo.png" alt="">
+        <a href="index.html">
+            <img src="/img/logo.png" alt="IMDb">
+        </a>
     </header>
-    <main class="container">
-        <div id="detalhe-filme" class="movie-card-detail">
-            
-            <div class="card shadow-lg">
-                <div class="row g-0">
-                    <div class="col-md-5">
-                        <img id="imagem-filme" src="" class="img-fluid rounded-start h-100" alt="${filme.primaryTitle}" style="object-fit: cover;">
-                    </div>
-                    <div class="col-md-7">
-                        <div class="card-body p-4">
-                            <h2 id="titulo-filme" class="card-title text-title mb-3">${filme.primaryTitle}</h2>
-                            <p id="descricao-filme" class="card-text">${filme.description || "Sem descrição disponível."}</p>
-                            
-                            <hr>
-                            <p id="generos-filme"><strong>Gênero:</strong> Ação, Aventura</p>
-                            <p id="lancamento-filme"><strong>Data de Lançamento:</strong> 2024</p>
-                            
-                            <div class="mt-4">
-                                <a href="index.html" class="btn btn-outline-warning btn-lg">
-                                    <i class="bi bi-arrow-left"></i> Voltar
-                                </a>
-                                <button class="btn btn-warning btn-lg ms-2" onclick="verTrailer()">Assistir Trailer</button>
+    <div class="film-blur">
+        <main>
+            <div id="detalhe-filme" class="movie-card-detail">
+                <div class="card shadow-lg">
+                    <div class="row g-0">
+                        <div class="col-md-5">
+                            <img id="imagem-filme" src="" class="img-fluid rounded-start h-100" alt="${filme.primaryTitle}" style="object-fit: cover;">
+                        </div>
+                        <div class="col-md-7">
+                            <div class="card-body p-4">
+                                <h2 id="titulo-filme" class="card-title text-title mb-3">${filme.primaryTitle}</h2>
+                                <p id="descricao-filme" class="card-text">${filme.description || "Sem descrição disponível."}</p>
+                                
+                                <hr>
+                                <p id="generos-filme"><strong>Gênero:</strong> Ação, Aventura</p>
+                                <p id="lancamento-filme"><strong>Data de Lançamento:</strong> 2024</p>
+                                
+                                <div class="mt-4">
+                                    <a href="index.html" class="btn btn-outline-warning btn-lg">
+                                        <i class="bi bi-arrow-left"></i> Voltar
+                                    </a>
+                                    <button class="btn btn-warning btn-lg ms-2" onclick="verTrailer()">Assistir Trailer</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-        </div>
-    </main>
+            </div>
+        </main>
+    </div>
 </body>
 <script src="/js/config.js"></script>
 <script src="/js/movie.js"></script>

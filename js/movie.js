@@ -10,6 +10,7 @@ const api = axios.create({
 async function carregarFilme() {
     const id = localStorage.getItem("filmeId")
 
+    let fundo_filme = document.getElementsByClassName("film-blur")
     let imagem_filme = document.getElementById("imagem-filme")
     let titulo_filme = document.getElementById("titulo-filme")
     let descricao_filme = document.getElementById("descricao-filme")
@@ -23,6 +24,8 @@ async function carregarFilme() {
         const dataLancamentoFormatada = dataLancamento.toLocaleDateString("pt-BR", { timeZone: "UTC" });
         console.log(filme)
 
+        fundo_filme[0].style.backgroundImage = `url("https://image.tmdb.org/t/p/w500/${filme.poster_path}")`
+        fundo_filme[0].style.backgroundSize = "auto"
         imagem_filme.src = `https://image.tmdb.org/t/p/w500/${filme.poster_path}`
         titulo_filme.textContent = filme.title
         descricao_filme.textContent = filme.overview
