@@ -12,9 +12,17 @@ async function verFilmes() {
     container.innerHTML = ""
     
     try {
-        let resposta = await api.get("/movie/top_rated?language=pt-BR")
+        let resposta = await api.get("/movie/popular?language=pt-BR")
         let filmes = resposta.data.results
         filmes.forEach(filme => {
+            const dataLancamento = new Date(filme.release_date)
+            const dataLancamentoFormatada = dataLancamento.toLocaleDateString("pt-BR", { timeZone: "UTC" });
+            let avaliacaoFilme = null
+            if (filme.vote_average == 0) {
+                avaliacaoFilme = "Em Breve"
+            } else {
+                avaliacaoFilme = filme.vote_average.toFixed(1)
+            }
             let linha = `
                 <div class="col">
                     <div class="card h-100">
@@ -22,6 +30,10 @@ async function verFilmes() {
                         <div class="card-body">
                             <h4 class="card-title text-title">${filme.title}</h4>
                             <p class="card-text text-truncate">${filme.overview || "Sem descrição disponível."}</p>
+                            <div class="bottom-info">
+                                <p class="card-text fw-bold">Data de Lançamento: <span class="card-text fw-normal">${dataLancamentoFormatada}</span></p>
+                                <p class="card-text fw-bold">Avaliação Média: <span class="card-text fw-normal">${avaliacaoFilme}</span></p>
+                            </div>
                         </div>
                         <div class="card-footer bg-transparent border-top-0">
                             <button class="btn btn-warning w-100 card-button" onclick="selecionarFilme(${filme.id})">Ver Sobre</button>
